@@ -5,9 +5,11 @@ Convert your pictures to ASCII style :D
 ## Demo
 
 Let's say I have an image:
+
 ![](https://i.imgur.com/iBjwSei.png)
 
 Now I open the exe and run asciitool.exe
+
 ![](https://i.imgur.com/WsBi3qU.png)
 
 Enter the RGB value and select a background color 
@@ -17,6 +19,7 @@ Enter the RGB value and select a background color
 ![](https://i.imgur.com/oSQsuET.png)
 
 Get the result :D!
+
 ![](https://i.imgur.com/nCME3vM.png)
 
 ## Features
