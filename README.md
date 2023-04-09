@@ -1,5 +1,7 @@
 # ASCII-Converter
+
 Convert your pictures to ASCII style :D
+
 ## Demo
 
 Let's say I have an image:
@@ -9,13 +11,10 @@ Now I open the exe and run
 
 ## Features
 
-- Helper command to setup liresolr and multiple solr cores
-- Distributed workers for indexing video
-- Load pre-hashed files into multiple cores (balanced)
-- Frame deduplication
-- Watch folder and index new videos automatically
-- Search multiple cores at once
-- Scalable to search 700 million frames in <3 seconds
+- Convert pictures to ASCII style
+- Can be converted in batches
+- Optional white or black background
+- Support font color change
 
 ## Prerequisites
 
@@ -23,14 +22,13 @@ Now I open the exe and run
 
 ## Getting Started
 
-### 1. Clone this repo and install
+### 1. Download the latest realese file.
 
-### 3. Start docker containers
+### 2. Unzip and run asciitool.exe.
 
-Warning: If the cores with the same name are already created, it will be deleted
+Warning: Do not move the exe location at will, please make good use of shortcuts.
 
-### 5. Check for files and submit new jobs to the queue
+### 3. Enter RGB values and select a background color.
 
-```
-npm run asciitool.exe
-```
+### 4. The resulting image will be automatically opened after conversion.
+
