@@ -31,9 +31,6 @@ question1.resizable(False, False)
 title4 = tk.Label(text="ASCII 字符圖片轉換", pady=20, background='#5E5E5E', foreground='#FFFFFF', font='bold')
 title4.pack(side='top',fill="x")
 
-title1 = tk.Label(text="請輸入 RGB 值", pady=0, background='#5E5E5E', foreground='#FFFFFF')
-title1.pack(side='top',fill="x")
-
 title2 = tk.Label(text="按住 Ctrl 可以選擇多個檔案", pady=20, background='#5E5E5E', foreground='#FFFFFF')
 title2.pack(side='bottom',fill="y")
 
@@ -47,6 +44,15 @@ blue = tk.StringVar()
 
 def g(red_value, green_value, blue_value, image_color, path_name):
     
+    if red.get() != '':
+        red_value = int(red.get())
+
+    if green.get() != '':
+        green_value = int(green.get())
+
+    if blue.get() != '':
+        blue_value = int(blue.get())
+
     with open('ascii' + path_name + '.html', 'w') as f:
             f.write('''
                     <html>
@@ -133,34 +139,18 @@ def g(red_value, green_value, blue_value, image_color, path_name):
     # webbrowser.open('ascii' + path_name + '.html')
     
 def ask_event():
-    if red.get() != '':
-        red_value = int(red.get())
-
-    if green.get() != '':
-        green_value = int(green.get())
-
-    if blue.get() != '':
-        blue_value = int(blue.get())
 
     image_color = 'white'
     path_name = ''
 
-    g(red_value, green_value, blue_value, image_color, path_name)
+    g(image_color, path_name)
     
 def ask2_event():
-    if red.get() != '':
-        red_value = int(red.get())
-
-    if green.get() != '':
-        green_value = int(green.get())
-
-    if blue.get() != '':
-        blue_value = int(blue.get())
-
+    
     image_color = 'black'
     path_name = '_inv'
     
-    g(red_value, green_value, blue_value, image_color, path_name)
+    g(image_color, path_name)
 
 def ask6_event():
 
@@ -178,14 +168,70 @@ def ask7_event():
     
     g(red_value, green_value, blue_value, image_color, path_name)
 
-ask3 = tk.Entry(question1, textvariable=red,)
+def check_entry():
+
+    content3 = ask3.get()
+    if len(content3) == 0:
+        ask3.config(fg="gray")
+        ask3.insert(0, "請輸入red")
+ 
+
+    content4 = ask4.get()
+    if len(content4) == 0:
+        ask4.config(fg="gray")
+        ask4.insert(0, "請輸入green")
+ 
+
+    content5 = ask5.get()
+    if len(content5) == 0:
+        ask5.config(fg="gray")
+        ask5.insert(0, "請輸入blue")
+
+
+#當 Entry 被點擊時，清空 Entry 中的文字
+def on_entry_click_red(event):
+    
+    check_entry()    
+    
+    if ask3.get() == "請輸入red":
+        ask3.delete(0, tk.END)
+        ask3.config(fg="black")
+
+
+
+def on_entry_click_green(event):
+
+    check_entry()
+
+    if ask4.get() == "請輸入green":
+        ask4.delete(0, tk.END)
+        ask4.config(fg="black")
+
+    
+
+def on_entry_click_blue(event):
+
+    check_entry()
+
+    if ask5.get() == "請輸入blue":
+        ask5.delete(0, tk.END)
+        ask5.config(fg="black")
+
+
+ask3 = tk.Entry(question1, fg="gray", textvariable=red)
 ask3.place(x=150,y=100,anchor="center")
+ask3.insert(0, "請輸入red")
+ask3.bind("<Button-1>", on_entry_click_red)
 
-ask4 = tk.Entry(question1, textvariable=green)
+ask4 = tk.Entry(question1, fg="gray", textvariable=green)
 ask4.place(x=300,y=100,anchor="center")
+ask4.insert(0, "請輸入green")
+ask4.bind("<Button-1>", on_entry_click_green)
 
-ask5 = tk.Entry(question1, textvariable=blue)
+ask5 = tk.Entry(question1, fg="gray", textvariable=blue)
 ask5.place(x=450,y=100,anchor="center")
+ask5.insert(0, "請輸入blue")
+ask5.bind("<Button-1>", on_entry_click_blue)
 
 ask = tk.Button(question1, text="白底彩字",command=ask_event, background="white", foreground="darkcyan")
 ask.place(x=225,y=175,anchor='center')
