@@ -7,7 +7,17 @@ Convert your pictures to ASCII style :D
 Let's say I have an image:
 ![](https://i.imgur.com/iBjwSei.png)
 
-Now I open the exe and run
+Now I open the exe and run asciitool.exe
+![](https://i.imgur.com/WsBi3qU.png)
+
+Enter the RGB value and select a background color 
+
+(There's another two buttons for white & black font.)
+
+![](https://i.imgur.com/oSQsuET.png)
+
+Get the result :D!
+![](https://i.imgur.com/nCME3vM.png)
 
 ## Features
 
@@ -22,13 +32,13 @@ Now I open the exe and run
 
 ## Getting Started
 
-### 1. Download the latest realese file.
+### 1. Download the latest realese file
 
-### 2. Unzip and run asciitool.exe.
+### 2. Run asciitool.exe
 
-Warning: Do not move the exe location at will, please make good use of shortcuts.
+Warning: Do not move the exe location at will, please make good use of shortcuts!
 
-### 3. Enter RGB values and select a background color.
+### 3. Enter RGB values and select a background color
 
-### 4. The resulting image will be automatically opened after conversion.
+### 4. The resulting image will be automatically opened after conversion
 
