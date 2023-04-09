@@ -45,3 +45,7 @@ Warning: Do not move the exe location at will, please make good use of shortcuts
 
 ### 4. The resulting image will be automatically opened after conversion
 
+
+## Thanks List
+
+Thanks for [Ziecer](https://github.com/Ziecer)'s help to finish all these works!
