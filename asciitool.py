@@ -3,7 +3,6 @@ import webbrowser
 import tkinter as tk
 from tkinter import filedialog
 from tkinter.constants import CENTER
-from tkinter import *
 import datetime
 import os
 import urllib.request
@@ -21,21 +20,18 @@ if not os.path.isdir(path):
 # urllib.request.urlretrieve(question_image, title_image)
 
 question1 = tk.Tk()
-question1.title('ASCII')
+question1.title('ASCII Converter')
 question1.configure(background='#5E5E5E')
 question1.geometry('600x300')
 question1.resizable(False, False)
 # question.iconbitmap(question_image)
 
 
-title4 = tk.Label(text="ASCII 字符圖片轉換", pady=20, background='#5E5E5E', foreground='#FFFFFF', font='bold')
-title4.pack(side='top',fill="x")
+title1 = tk.Label(text="ASCII 字符圖片轉換\nASCII Picture Converter",pady='30', background='#5E5E5E', foreground='#FFFFFF', font='bold')
+title1.pack(side='top',fill="x")
 
-title2 = tk.Label(text="按住 Ctrl 可以選擇多個檔案", pady=20, background='#5E5E5E', foreground='#FFFFFF')
-title2.pack(side='bottom',fill="y")
-
-title3 = tk.Label(text="請選擇轉換圖片的方式", pady=50, background='#5E5E5E', foreground='#FFFFFF')
-title3.pack(side='top',fill="x")
+title2 = tk.Label(text="請選擇轉換圖片的方式\nPlease choose how to convert the image",pady='30', background='#5E5E5E', foreground='#FFFFFF')
+title2.pack(side='top',fill="x")
 
 
 red = tk.StringVar()
@@ -43,24 +39,15 @@ green = tk.StringVar()
 blue = tk.StringVar()
 
 def g(red_value, green_value, blue_value, image_color, path_name):
-    
-    if red.get() != '':
-        red_value = int(red.get())
 
-    if green.get() != '':
-        green_value = int(green.get())
-
-    if blue.get() != '':
-        blue_value = int(blue.get())
-
-    with open('ascii' + path_name + '.html', 'w') as f:
-            f.write('''
-                    <html>
-                        <body>
-                            <pre>{}</pre>
-                        </body>
-                    </html>'''
-                    )
+    # with open('ascii' + path_name + '.html', 'w') as f:
+    #         f.write('''
+    #                 <html>
+    #                     <body>
+    #                         <pre>{}</pre>
+    #                     </body>
+    #                 </html>'''
+    #                 )
             
     file_pathment = filedialog.askopenfilenames()
         
@@ -126,31 +113,50 @@ def g(red_value, green_value, blue_value, image_color, path_name):
         art_image.save(save_path)
 
         # 將字符圖片輸出成文本文件
-        with open('ascii' + path_name + '.html', 'a') as f:
-            f.write('''
-                    <html>
-                        <body>
-                            <pre>{}</pre>
-                        </body>
-                    </html>'''
-                    .format(ascii_art))
+        # with open('ascii' + path_name + '.html', 'a') as f:
+        #     f.write('''
+        #             <html>
+        #                 <body>
+        #                     <pre>{}</pre>
+        #                 </body>
+        #             </html>'''
+        #             .format(ascii_art))
         webbrowser.open('file://' + os.path.realpath(save_path))
+
     # 使用預設瀏覽器打開字符圖片
     # webbrowser.open('ascii' + path_name + '.html')
     
 def ask_event():
 
+    if red.get() != '':
+        red_value = int(red.get())
+
+    if green.get() != '':
+        green_value = int(green.get())
+
+    if blue.get() != '':
+        blue_value = int(blue.get())
+    
     image_color = 'white'
     path_name = ''
 
-    g(image_color, path_name)
+    g(red_value, green_value, blue_value, image_color, path_name)
     
 def ask2_event():
     
+    if red.get() != '':
+        red_value = int(red.get())
+
+    if green.get() != '':
+        green_value = int(green.get())
+
+    if blue.get() != '':
+        blue_value = int(blue.get())
+
     image_color = 'black'
     path_name = '_inv'
     
-    g(image_color, path_name)
+    g(red_value, green_value, blue_value, image_color, path_name)
 
 def ask6_event():
 
@@ -173,77 +179,72 @@ def check_entry():
     content3 = ask3.get()
     if len(content3) == 0:
         ask3.config(fg="gray")
-        ask3.insert(0, "請輸入red")
+        ask3.insert(0, "Enter the R value")
  
 
     content4 = ask4.get()
     if len(content4) == 0:
         ask4.config(fg="gray")
-        ask4.insert(0, "請輸入green")
+        ask4.insert(0, "Enter the G value")
  
 
     content5 = ask5.get()
     if len(content5) == 0:
         ask5.config(fg="gray")
-        ask5.insert(0, "請輸入blue")
+        ask5.insert(0, "Enter the B value")
 
-
-#當 Entry 被點擊時，清空 Entry 中的文字
+# 當 Entry 被點擊時，清空 Entry 中的文字
 def on_entry_click_red(event):
     
     check_entry()    
     
-    if ask3.get() == "請輸入red":
+    if ask3.get() == "Enter the R value":
         ask3.delete(0, tk.END)
         ask3.config(fg="black")
-
-
 
 def on_entry_click_green(event):
 
     check_entry()
 
-    if ask4.get() == "請輸入green":
+    if ask4.get() == "Enter the G value":
         ask4.delete(0, tk.END)
         ask4.config(fg="black")
-
-    
 
 def on_entry_click_blue(event):
 
     check_entry()
 
-    if ask5.get() == "請輸入blue":
+    if ask5.get() == "Enter the B value":
         ask5.delete(0, tk.END)
         ask5.config(fg="black")
 
 
 ask3 = tk.Entry(question1, fg="gray", textvariable=red)
 ask3.place(x=150,y=100,anchor="center")
-ask3.insert(0, "請輸入red")
+ask3.insert(0, "Enter the R value")
 ask3.bind("<Button-1>", on_entry_click_red)
 
 ask4 = tk.Entry(question1, fg="gray", textvariable=green)
 ask4.place(x=300,y=100,anchor="center")
-ask4.insert(0, "請輸入green")
+ask4.insert(0, "Enter the G value")
 ask4.bind("<Button-1>", on_entry_click_green)
 
 ask5 = tk.Entry(question1, fg="gray", textvariable=blue)
 ask5.place(x=450,y=100,anchor="center")
-ask5.insert(0, "請輸入blue")
+ask5.insert(0, "Enter the B value")
 ask5.bind("<Button-1>", on_entry_click_blue)
 
-ask = tk.Button(question1, text="白底彩字",command=ask_event, background="white", foreground="darkcyan")
-ask.place(x=225,y=175,anchor='center')
+ask = tk.Button(question1, text="白底彩字 [White BG Color Font]",command=ask_event, background="white", foreground="darkcyan")
+ask.place(x=190,y=190,anchor='center')
 
-ask2 = tk.Button(question1, text="黑底彩字",command=ask2_event, background="gray", foreground="lightcyan")
-ask2.place(x=375,y=175,anchor='center')
+ask2 = tk.Button(question1, text="黑底彩字 [Black BG Color Font]",command=ask2_event, background="gray", foreground="lightcyan")
+ask2.place(x=410,y=190,anchor='center')
 
-ask6 = tk.Button(question1, text="白底黑字", command=ask6_event, background="white", foreground="black")
-ask6.place(x=225,y=225,anchor='center')
+ask6 = tk.Button(question1, text="白底黑字 [White BG Black Font]", command=ask6_event, background="white", foreground="black")
+ask6.place(x=190,y=240,anchor='center')
 
-ask7 = tk.Button(question1, text="黑底白字",command=ask7_event, background="gray", foreground="white")
-ask7.place(x=375,y=225,anchor='center')
+ask7 = tk.Button(question1, text="黑底白字 [Black BG White Font]",command=ask7_event, background="gray", foreground="white")
+ask7.place(x=410,y=240,anchor='center')
 
 #ask6 = tk.Button(question1, text="確認",command=ask6_event)
 #ask6.place(x=300,y=200,anchor='center')
