@@ -4,7 +4,7 @@ Convert your pictures to ASCII style :D
 
 ## Demo
 
-Let's say I have an image:
+Let's say I have an image (Credit: [@tokiwa_91](https://twitter.com/tokiwa_914/status/1614264268286791680))
 
 ![](https://i.imgur.com/iBjwSei.png)
 
