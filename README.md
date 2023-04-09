@@ -35,7 +35,7 @@ Get the result :D!
 
 ## Getting Started
 
-### 1. Download the latest realese file
+### 1. Download the latest [realese](https://github.com/NatsuNiNi/ASCII-Converter/releases)
 
 ### 2. Run asciitool.exe
 
